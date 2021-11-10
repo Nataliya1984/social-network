@@ -1,0 +1,85 @@
+/* .dialogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 10fr;
+
+}
+
+.dialogsIitems {
+  padding: 10px;
+}
+
+.dialog a.activ {
+    color:gold;
+}
+
+.dialog a{
+    text-decoration: none;
+    color:white;
+}
+
+.messages {
+  padding: 10px;
+}
+
+.butt {
+  text-align: center;
+}
+
+.item img {
+  width: 60.44px;
+  border-radius: 40px;
+}
+
+.item {
+    padding: 10px;
+} */
+
+
+.dialogs {
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+
+  grid-template-areas:
+  "h h "
+  "d m";
+
+
+  grid-template-rows: 90px 1fr;
+  grid-template-columns: 2fr 8fr;
+
+}
+
+
+
+/* .avatar {
+  grid-area: f;
+  background-color: rgb(143, 131, 131);
+}
+
+.avatar img {
+  width: 60.44px;
+  border-radius: 40px;
+}
+
+.avatar {
+  padding: 10px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+nav {
+  grid-area: n;
+  background-color: rgb(126, 126, 110);
+  padding: 20px;
+}
+
+.item a{
+  color: white;
+  text-decoration: none;
+}
+
+.item a.navActiv {
+  color:rgb(219, 236, 62);
+}
+
+.friend {
+  display:flex;
+  justify-content: space-around;
+}
+
+.item.friends {
+  padding-top: 20px;
+}
+
