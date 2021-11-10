@@ -9,9 +9,6 @@ import AddDialog from "./AddDialog/AddDialog";
 const Dialogs = (props) => {
 
 
-
-  
-
  let messageElements = props.dialogsPage.messageData.map( (messag) => (<Message messag={messag.messag} id={messag.id} />))
 
       let dialogElements = props.dialogsPage.dialogData

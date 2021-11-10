@@ -1,7 +1,6 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
-const ADD_DIALOGS = 'ADD-DIALOGS';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
   _state: {
@@ -63,115 +62,20 @@ let store = {
     console.log("hello");
   },
 
-  getState () {
+  getState() {
     return this._state;
   },
-  substribe(observer){
+  substribe(observer) {
     this._rerenderEntireTree = observer;
   },
-  
-  addDialogs(){
-    let newMessag = {
-      messag: this._state.dialogsPage.newDialogText,
-      id: 3,
-    };
-  
-    /*  let newDialog = {
-      id: 3,
-          name: "Katya",
-          img: "https://www.myzoomag.com.ua/image/cache/data/article/1-500x500.jpg",
-    } */
-    /*  this._state.dialogsPage.dialogData.push(newDialog);
-    rerenderEntireTree(state); */
-    this._state.dialogsPage.messageData.push(newMessag);
-    this._state.dialogsPage.newDialogText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  updateNewDialogText (newText){
-    this._state.dialogsPage.newDialogText = newText;
-    this._rerenderEntireTree(this._state);
-  },
-  addPost(){
-    let newPosts = {
-      message: this._state.profilePage.newPostText,
-      grade: "like 0",
-    };
-    this._state.profilePage.posts.push(newPosts);
-    this._state.profilePage.newPostText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  updateNewPostText(newText) {
-    
-    this._state.profilePage.newPostText = newText;
-    this._rerenderEntireTree(this._state);
-  },
 
-  dispatch (action) {
-    if (action.type === 'ADD-DIALOGS'){
-      let newMessag = {
-        messag: this._state.dialogsPage.newDialogText,
-        id: 3,
-      };
-    
-      /*  let newDialog = {
-        id: 3,
-            name: "Katya",
-            img: "https://www.myzoomag.com.ua/image/cache/data/article/1-500x500.jpg",
-      } */
-      /*  this._state.dialogsPage.dialogData.push(newDialog);
-      rerenderEntireTree(state); */
-      this._state.dialogsPage.messageData.push(newMessag);
-      this._state.dialogsPage.newDialogText = "";
-      this._rerenderEntireTree(this._state);
-    }
-    else if (action.type === 'UPDATE-NEW-DIALOG-TEXT') {
-      this._state.dialogsPage.newDialogText = action.newText;
+  dispatch(action) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebarPage = sidebarReducer(this._state.sidebarPage, action);
+
     this._rerenderEntireTree(this._state);
-    }
-    else if(action.type === 'ADD-POST') {
-      let newPosts = {
-        message: this._state.profilePage.newPostText,
-        grade: "like 0",
-      };
-      this._state.profilePage.posts.push(newPosts);
-      this._state.profilePage.newPostText = "";
-      this._rerenderEntireTree(this._state);
-    }
-    else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.newText;
-    this._rerenderEntireTree(this._state);
-    }
-  }
- 
+  },
 };
-
-export let addPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-
-export let updateNewPostTextActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text,
-  };
-};
-
-export let addDialogsActionCreator = () => {
-  
-  return {
-   type:ADD_DIALOGS,
-  }
-}
-
-export let updateNewDialogTextActionCreator = (text) => {
- 
-  return {
-    type: UPDATE_NEW_DIALOG_TEXT, 
-    newText: text,
-  }
-}
-
 
 export default store;
