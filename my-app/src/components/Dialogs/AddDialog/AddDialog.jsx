@@ -1,22 +1,17 @@
 import React from "react";
-import {
-  addDialogsActionCreator,
-  updateNewDialogTextActionCreator,
-} from "../../../Redux/dialogs-reducer";
 import classes from "./AddDialog.module.css";
 
 const AddDialog = (props) => {
   let newDialogsElements = React.createRef();
 
-  let addDialogs = () => {
-    props.dispatch(addDialogsActionCreator());
-  };
-
   let onDialogChange = () => {
     let text = newDialogsElements.current.value;
-    const action = updateNewDialogTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewDialogText(text);
     console.log(text);
+  };
+
+  let onAddDialogs = () => {
+    props.addDialogs();
   };
 
   return (
@@ -29,7 +24,7 @@ const AddDialog = (props) => {
         />
       </div>
       <div className={classes.btn}>
-        <div onClick={addDialogs} className={classes.button}>
+        <div onClick={onAddDialogs} className={classes.button}>
           add dialogs
         </div>
       </div>
