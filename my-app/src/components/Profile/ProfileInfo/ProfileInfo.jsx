@@ -7,7 +7,7 @@ const ProfileInfo = (props) => {
            <div>
         <img src="https://www.ejin.ru/wp-content/uploads/2017/09/1-887.jpg" />
       </div>
-      <div className={classes.profileInfoBlock}>ava+description</div>
+      <div className={classes.profileInfoBlock}>{/* ava+description */}</div>
        </div> 
     );
 }

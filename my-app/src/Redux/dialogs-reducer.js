@@ -3,20 +3,20 @@ const ADD_DIALOGS = "ADD-DIALOGS";
 
 let initialState = {
   messageData: [
-    { messag: "привет", id: 1 },
-    { messag: "как дела?", id: 2 },
+    { messag: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.", id: 1 },
+   { messag: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.", id: 2 }, 
   ],
 
   dialogData: [
     {
       id: 1,
-      name: "Andrey",
-      img: "https://www.myzoomag.com.ua/image/cache/data/article/1-500x500.jpg",
+      name: "Екатерина",
+      img: "https://cs8.pikabu.ru/post_img/2016/05/23/11/1464032139122642778.jpg",
     },
     {
       id: 2,
-      name: "Katya",
-      img: "https://www.myzoomag.com.ua/image/cache/data/article/1-500x500.jpg",
+      name: "Александр",
+      img: "https://avatarfiles.alphacoders.com/164/thumb-1920-164590.jpg",
     },
   ],
   newDialogText: "Ведите ваше сообщение",
@@ -24,19 +24,23 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_DIALOGS:
+    case ADD_DIALOGS: {
       let newMessag = {
         messag: state.newDialogText,
         id: 3,
       };
+      let stateCopy = {...state};
+      stateCopy.messageData = [...state.messageData];
+      stateCopy.messageData.push(newMessag);
+      stateCopy.newDialogText = "";
+      return stateCopy;
+    }
 
-      state.messageData.push(newMessag);
-      state.newDialogText = "";
-      return state;
-
-    case UPDATE_NEW_DIALOG_TEXT:
-      state.newDialogText = action.newText;
-      return state;
+    case UPDATE_NEW_DIALOG_TEXT: {
+      let stateCopy = {...state};
+      stateCopy.newDialogText = action.newText;
+      return stateCopy;
+    }
     default:
       return state;
   }

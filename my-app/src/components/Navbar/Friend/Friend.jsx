@@ -4,14 +4,16 @@ import FriendsItem from "./FriendsItem/FriendsItem";
 
 const Friends = (props) => {
 
+  /* let state = props.store.getState().sidebar; */
 
   let friendsElements = props.friends.map((f) => (
     <FriendsItem name={f.name} avatar={f.avatar} />
   ));
 
-
-
   return <div className={classes.friend}>{friendsElements}</div>;
 };
+
+
+
 
 export default Friends;

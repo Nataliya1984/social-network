@@ -2,22 +2,44 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogItems from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
-import AddDialogContainer from "./AddDialog/AddDialogContainer";
+
 
 const Dialogs = (props) => {
-  let state = props.store.getState().dialogsPage;
 
-  let messageElements = state.messageData.map((messag) => (
+  let messageElements = props.messageData.map((messag) => (
     <Message messag={messag.messag} id={messag.id} />
   ));
 
-  let dialogElements = state.dialogData.map((dialog) => (
+  let dialogElements = props.dialogData.map((dialog) => (
     <DialogItems name={dialog.name} id={dialog.id} img={dialog.img} />
   ));
 
+  let newDialogsElements = React.createRef();
+
+  let onAddDialogs = () => {
+     props.addDialog();
+     
+  }
+
+  let onDialogChange = () => {
+      let text = newDialogsElements.current.value;
+      props.updateNewDialogText(text);
+      
+  }
+
   return (
     <div className={classes.dialogs}>
-      <AddDialogContainer store={props.store} />
+      <div className={classes.addDialog}>
+      <div className={classes.ditDialog}>
+        <textarea className={classes.textInput}
+                  ref ={newDialogsElements}
+                  onChange={onDialogChange}
+                  value={props.newDialogText} />
+      </div>
+      <div className={classes.btn}>
+        <div onClick={onAddDialogs} className={classes.buttonDialogs}>add dialogs</div>
+      </div>
+    </div>
 
       <div className={classes.dialogItems}>{dialogElements}</div>
 
@@ -25,5 +47,7 @@ const Dialogs = (props) => {
     </div>
   );
 };
+
+
 
 export default Dialogs;

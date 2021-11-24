@@ -1,11 +1,61 @@
-  .item {
+  /* .item {
     color:darkgreen;
-  }
+  } */
 
   .myPostsBlock {
     padding: 10px;
   }
 
-  .button {
-    padding: 10px 0 10px 0;
+  h3 {
+    text-align: center;
+    font-family: 'Estonia', cursive;
   }
+
+  textarea {
+    width: 500px;
+    height: 70px;
+    border-radius: 20px;
+    border: 4px solid rgb(108, 108, 131);
+  }
+
+ 
+  .textBlock {
+    text-align: center;
+  }
+
+  .textInput {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 5px;
+    font-style:italic ;
+    margin-top: 15px;
+  }
+
+  .button {
+    text-align:center;
+    position:relative;
+  }
+
+  .buttonPost{
+    padding: 5px;
+    text-align: -webkit-center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid rgb(108, 108, 131);
+    background-color: rgb(179, 179, 189);
+    border-radius: 15px;
+    margin-top: 30px;
+  }
+
+  .posts {
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 48px;
+  }
+
+  

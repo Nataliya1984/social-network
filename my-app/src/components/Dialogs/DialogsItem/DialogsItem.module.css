@@ -1,6 +1,5 @@
 .dialogItems {
     grid-area: d;
-    background-color: rgb(228, 238, 229);
   }
   
   .dialogItems {
@@ -16,10 +15,20 @@
   }
   
   .avatar img {
-    width: 60.44px;
+    width: 100px;
     border-radius: 40px;
+    margin:15px;
   }
   
   .avatar {
     padding: 10px;
   }
+
+ .dialogItems a {
+    text-decoration: none;
+    line-height:100px;
+    color: darkred;
+    font-size: 22px;
+  }
+
+

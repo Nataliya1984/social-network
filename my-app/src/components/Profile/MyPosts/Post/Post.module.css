@@ -1,4 +1,10 @@
 .item img {
-    width: 80px;
+    width: 110px;
       border-radius: 40px;
+      margin: 20px;
+
+  }
+
+  .item img:first-child { 
+    margin-top: 70px;
   }

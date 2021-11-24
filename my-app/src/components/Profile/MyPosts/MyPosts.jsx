@@ -3,6 +3,8 @@ import classes from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+
+  
   let postElements = props.posts.map((p) => (
     <Post message={p.message} grade={p.grade} />
   ));
@@ -20,17 +22,17 @@ const MyPosts = (props) => {
 
   return (
     <div className={classes.myPostsBlock}>
-      <h3> My posts </h3>
+      <h3> Мои сообщения </h3>
       <div>
-        <div>
-          <textarea
+        <div className={classes.textBlock}>
+          <textarea className={classes.textInput}
             onChange={onPostChange}
             ref={newPostElement}
             value={props.newPostText}
           />
         </div>
         <div className={classes.button}>
-          <button onClick={onAddPost}>add posts</button>
+          <div onClick={onAddPost} className={classes.buttonPost}>add posts</div>
         </div>
       </div>
       <div className={classes.posts}>{postElements}</div>

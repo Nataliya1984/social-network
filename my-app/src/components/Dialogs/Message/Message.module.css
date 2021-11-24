@@ -1,4 +1,8 @@
-.messages {
-    grid-area: m;
-    background-color: rgb(219, 157, 157);
+
+  .messag {
+    border: 1px solid #c7b4b4;
+    border-radius: 30px;
+    padding: 15px;
+    margin: 0 25px 25px 25px;
+    background-color: #fff;
   }
